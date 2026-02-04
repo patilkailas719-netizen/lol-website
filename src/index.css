@@ -1,0 +1,228 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* Premium Industrial Design System */
+@layer base {
+  :root {
+    /* Warm cream/off-white base */
+    --background: 40 20% 98%;
+    --foreground: 30 10% 15%;
+
+    /* Card surfaces - slightly warmer */
+    --card: 40 15% 97%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 40 15% 97%;
+    --popover-foreground: 30 10% 15%;
+
+    /* Charcoal primary - sophisticated industrial */
+    --primary: 220 15% 20%;
+    --primary-foreground: 40 20% 98%;
+
+    /* Warm stone secondary */
+    --secondary: 35 10% 92%;
+    --secondary-foreground: 30 10% 25%;
+
+    /* Muted tones */
+    --muted: 35 8% 90%;
+    --muted-foreground: 30 8% 45%;
+
+    /* Copper/bronze accent - premium industrial feel */
+    --accent: 25 70% 45%;
+    --accent-foreground: 40 20% 98%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 15% 88%;
+    --input: 35 15% 88%;
+    --ring: 25 70% 45%;
+
+    --radius: 0.375rem;
+
+    /* Custom gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 15% 20%) 0%, hsl(220 20% 30%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(25 70% 45%) 0%, hsl(30 65% 55%) 100%);
+    --gradient-surface: linear-gradient(180deg, hsl(40 20% 98%) 0%, hsl(35 15% 95%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(30 10% 15% / 0.08);
+    --shadow-medium: 0 8px 30px -8px hsl(30 10% 15% / 0.12);
+    --shadow-strong: 0 20px 50px -15px hsl(30 10% 15% / 0.2);
+    --shadow-accent: 0 8px 30px -8px hsl(25 70% 45% / 0.3);
+
+    /* Sidebar */
+    --sidebar-background: 40 15% 97%;
+    --sidebar-foreground: 30 10% 25%;
+    --sidebar-primary: 220 15% 20%;
+    --sidebar-primary-foreground: 40 20% 98%;
+    --sidebar-accent: 35 10% 92%;
+    --sidebar-accent-foreground: 30 10% 25%;
+    --sidebar-border: 35 15% 88%;
+    --sidebar-ring: 25 70% 45%;
+  }
+
+  .dark {
+    --background: 220 15% 8%;
+    --foreground: 40 15% 95%;
+
+    --card: 220 15% 10%;
+    --card-foreground: 40 15% 95%;
+
+    --popover: 220 15% 10%;
+    --popover-foreground: 40 15% 95%;
+
+    --primary: 40 15% 95%;
+    --primary-foreground: 220 15% 12%;
+
+    --secondary: 220 12% 18%;
+    --secondary-foreground: 40 15% 90%;
+
+    --muted: 220 12% 18%;
+    --muted-foreground: 40 10% 60%;
+
+    --accent: 25 70% 50%;
+    --accent-foreground: 220 15% 8%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 12% 18%;
+    --input: 220 12% 18%;
+    --ring: 25 70% 50%;
+
+    --sidebar-background: 220 15% 10%;
+    --sidebar-foreground: 40 15% 90%;
+    --sidebar-primary: 25 70% 50%;
+    --sidebar-primary-foreground: 220 15% 8%;
+    --sidebar-accent: 220 12% 18%;
+    --sidebar-accent-foreground: 40 15% 90%;
+    --sidebar-border: 220 12% 18%;
+    --sidebar-ring: 25 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    @apply font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  /* Premium section styling */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .container-premium {
+    @apply container mx-auto px-6 md:px-8 lg:px-12;
+  }
+
+  /* Elegant underline accent */
+  .accent-underline {
+    @apply relative inline-block;
+  }
+
+  .accent-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-accent;
+  }
+
+  /* Card hover effects */
+  .card-premium {
+    @apply bg-card rounded-lg transition-all duration-500 ease-out;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .card-premium:hover {
+    box-shadow: var(--shadow-medium);
+    @apply -translate-y-1;
+  }
+
+  /* Button variants */
+  .btn-premium {
+    @apply inline-flex items-center justify-center px-8 py-4 font-medium transition-all duration-300;
+    @apply rounded-sm text-sm tracking-wider uppercase;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground;
+    @apply hover:bg-primary/90;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .btn-primary:hover {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .btn-accent {
+    background: var(--gradient-accent);
+    @apply text-accent-foreground;
+    box-shadow: var(--shadow-accent);
+  }
+
+  .btn-accent:hover {
+    @apply opacity-90 scale-[1.02];
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary bg-transparent text-primary;
+    @apply hover:bg-primary hover:text-primary-foreground;
+  }
+
+  /* Section headers */
+  .section-label {
+    @apply text-accent text-sm font-semibold tracking-[0.2em] uppercase mb-4;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl text-foreground mb-6;
+  }
+
+  .section-description {
+    @apply text-muted-foreground text-lg md:text-xl max-w-2xl;
+  }
+}
+
+@layer utilities {
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
+  }
+
+  /* Hero overlay */
+  .hero-overlay {
+    background: linear-gradient(
+      to right,
+      hsl(220 15% 10% / 0.9) 0%,
+      hsl(220 15% 10% / 0.7) 50%,
+      hsl(220 15% 10% / 0.4) 100%
+    );
+  }
+
+  /* Subtle pattern background */
+  .pattern-grid {
+    background-image: 
+      linear-gradient(hsl(35 15% 88% / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(35 15% 88% / 0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
